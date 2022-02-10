@@ -1,0 +1,30 @@
+{
+  "name": "tiny-secp256k1-consumer",
+  "packageManager": "yarn@3.1.1",
+  "dependencies": {
+    "tiny-secp256k1": "2.2.0",
+    "tiny-secp256k1-updated": "file:path/to/local/copy/of/https://github.com/Robin-Hoodie/tiny-secp256k1?organization=Robin-Hoodie&organization=Robin-Hoodie"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.0",
+    "@babel/core": "^7.17.2",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-typescript": "^7.16.7",
+    "@tsconfig/node16": "^1.0.2",
+    "@types/jest": "^27.4.0",
+    "@types/node": "^17.0.17",
+    "jest": "^27.5.1",
+    "typescript": "^4.5.5"
+  },
+  "scripts": {
+    "original:babel": "babel src/original.ts --extensions .ts --out-dir dist/babel && node dist/babel/original.js",
+    "original:ts": "tsc src/original.ts --outDir dist/typescript && node dist/typescript/original.js",
+    "original:test": "jest src/original.spec.ts",
+    "updated:babel": "babel src/updated.ts --extensions .ts --out-dir dist/babel && node dist/babel/updated.js",
+    "updated:ts": "tsc src/updated.ts --outDir dist/typescript && node dist/typescript/updated.js",
+    "updated:test": "jest src/updated.spec.ts"
+  },
+  "resolutions": {
+    "tiny-secp256k1": "portal:/Users/robin/development/open-source/tiny-secp256k1"
+  }
+}
